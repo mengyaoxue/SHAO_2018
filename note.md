@@ -18,7 +18,7 @@ MWA相干叠加的脉冲星数据示例
 
 #### 3. 处理命令
 
-    dspsr -cont -U 400 -E /home/share/data/pulsar_par_file/J0630-2834.par -K -b 128 -A -L 10 -d 4 -O /home/xuemy/J0630-2834_n128_ch133-156 1140177088_ch133-156_0001.fits
+    dspsr -cont -U 600 -E /home/share/data/pulsar_par_file/J0630-2834.par -K -b 128 -A -L 10 -d 4 -O ~/J0630-2834_n128_ch133-156 1140177088_ch133-156_000?.fits
 
     pam -e ar12 -T -R 44.63 J0630-2834_n128_ch133-156.ar
 
