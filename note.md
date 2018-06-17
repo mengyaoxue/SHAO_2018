@@ -9,6 +9,8 @@
     source /usr/local/astrosoft/start_tempo2.rc
     source /usr/local/astrosoft/start_tempo.rc
 
+方便起见可以将以上命令粘帖至 `~/.bashrc` 文件的末尾，这样每次登录时会自动加载以上软件
+
 #### 2. 202.127.29.56服务器上已有的MWA脉冲星数据
 已知脉冲星的参数par file
 > /home/share/data/mwa_pulsar/pulsar_par_file
@@ -18,14 +20,22 @@ MWA相干叠加的脉冲星数据示例
 
 #### 3. 处理命令
 
-    dspsr -cont -U 600 -E /home/share/data/pulsar_par_file/J0630-2834.par -K -b 128 -A -L 10 -d 4 -O ~/J0630-2834_n128_ch133-156 1140177088_ch133-156_000?.fits
+    dspsr -cont -U 600 -E /home/share/data/pulsar_par_file/J0630-2834.par -K -b 128 -A -L 10 -d 4 -O ~/J0630-2834_n128_ch133-156 1140177088_ch133-156_000？.fits
+
+其中，`-cont -U 600`表示使用600Mb内存，`-E` 后面是脉冲星.par文件，`-K` 表示做消色散处理，`-b` 表示将每一个脉冲周期分成多少个time bin，`-A` 表示输出文件中包含多个时间积分段，`-L` 表示几秒钟为一个时间积分段（示例中为10s一段），`-d 4` 表示记录全部四个偏振信息，`-O` 后面跟输出文件位置。最后给出输入文件，支持通配符。运行结束后生成.ar文件。
 
     pam -e ar12 -T -R 44.63 J0630-2834_n128_ch133-156.ar
 
-    pav -SFT /home/xuemy/J0630-2834_n128_ch133-156.ar
+将psrcat中的RM信息写入.ar文件的头文件，`-e` 新生成文件的后缀，`-T`,将所有时间积分段叠加在一起，`-R` RM值。
+
+    pav -SFT ~/J0630-2834_n128_ch133-156.ar
+    pav -SFT ~/J0630-2834_n128_ch133-156.ar12
+画图命令，`S` 表示画出总强度&线偏振&圆偏振，`F` 表示将所有频率段叠加，`T` 表示将所有时间积分段叠加。可对比进行RM改正和未进行RM改正的偏振轮廓。  
+如需输出.ps格式图片，可在命令中加入 `-g[output].ps/cps`
+
 
     pdv -t -K -FT -Z J0630-2834_n128_ch133-156.ar > J0630-2834_n128_ch133-156.txt
-
+输出脉冲轮廓文本文件，`-t` 表示 ascii 格式输出，`-K`表示第一行以#开始，`-F` 表示将所有频率段叠加，`-T` 表示将所有时间积分段叠加，`-Z`表示输出线偏角。
 
 
 # MWA-VCS 原始数据处理
