@@ -11,7 +11,8 @@
 
 方便起见可以将以上命令粘帖至 `~/.bashrc` 文件的末尾，这样每次登录时会自动加载以上软件
 
-#### 2. 202.127.29.56服务器上已有的MWA脉冲星数据
+#### 2. CRATIV服务器上已有的MWA脉冲星数据
+
 已知脉冲星的参数par file
 > /home/share/data/mwa_pulsar/pulsar_par_file
 
