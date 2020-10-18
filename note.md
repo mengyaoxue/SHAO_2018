@@ -124,4 +124,5 @@ MWA-VCS原始数据在pawsey的处理流程
 >tmux a -t $session_name
 
 删除指定session
->tmux kill-session -t $session_name
+>tmux kill-session -t $session_name  
+删除当前session: `Ctrl+d`
