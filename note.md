@@ -97,14 +97,11 @@ MWA-VCS原始数据在pawsey的处理流程
 # 后台数据传输
 #### 用tmux窗口在后台下载galaxy数据
 (https://gist.github.com/henrik/1967800)  
-开启tmux
-> tmux
+开启tmux `tmux`  
 
-显示已有tmux列表
-> tmux ls
+显示已有tmux列表 `tmux ls`  
 
-临时退出session
->Ctrl+b d  
+临时退出session `Ctrl+b d`  
 
 在session中翻页
 >Ctrl+b \[  
