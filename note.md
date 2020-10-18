@@ -104,7 +104,12 @@ MWA-VCS原始数据在pawsey的处理流程
 > tmux ls
 
 临时退出session
->Ctrl+b d
+>Ctrl+b d  
+
+在session中翻页
+>Ctrl+b \[  
+
+退出翻页模式: `q`
 
 横切split pane horizontal
 >Ctrl+b ” (问号的上面，shift+’)
